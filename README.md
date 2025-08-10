@@ -1,14 +1,15 @@
-# 智能分镜脚本生成器
+# 🎬 智能分镜脚本生成器 (AI Storyboard Generator)
 
-基于 Google Gemini AI 的智能分镜脚本生成工具，专为短视频创作者设计，融合病毒营销策略。
+基于 Google Gemini 2.5 Pro 的智能分镜脚本生成工具，专为短视频创作者设计，融合病毒营销策略，一键生成专业分镜脚本。
 
-## 功能特点
+## ✨ 功能特点
 
-- 🎬 **智能分镜生成**：根据文案自动生成专业分镜脚本
-- 🚀 **病毒营销策略**：内置短视频病毒传播规律
-- 📊 **Notion 集成**：一键导出分镜到 Notion 表格
-- 🎨 **多风格支持**：剧情、喜剧、纪录片、广告等多种风格
-- 📱 **多平台优化**：针对抖音、小红书、YouTube、B站等平台特性
+- 🎬 **智能分镜生成**：基于 Gemini 2.5 Pro，根据旁白自动生成专业分镜
+- ⚡ **快节奏分镜**：按标点符号自动切分，每个短句一个镜头
+- 🚀 **病毒营销策略**：内置短视频病毒传播规律，自动设计钩子和情绪曲线
+- 📊 **Notion 集成**：一键导出完整分镜到 Notion，支持团队协作
+- 🎨 **多风格支持**：剧情、喜剧、纪录片、商业广告、教育科普
+- 📱 **多平台优化**：针对抖音、小红书、YouTube、B站等平台特性优化
 
 ## 快速开始
 
@@ -20,7 +21,7 @@ npm install
 
 ### 2. 配置环境变量
 
-复制 `.env.local.example` 为 `.env.local` 并填写以下配置：
+复制 `.env.example` 为 `.env.local` 并填写以下配置：
 
 ```env
 # Google Gemini API
@@ -54,9 +55,9 @@ npm run dev
 
 访问 http://localhost:3000
 
-## 使用指南
+## 📖 使用指南
 
-1. **输入文案**：在左侧输入框输入你的短视频文案
+1. **输入旁白**：在左侧输入框输入你的短视频旁白文案（系统会按标点符号自动分镜）
 2. **选择参数**：
    - 风格类型（剧情/喜剧/纪录片等）
    - 投放平台（抖音/小红书/YouTube等）
@@ -69,7 +70,7 @@ npm run dev
    - 情绪曲线设计
 5. **导出 Notion**：点击"导出到Notion"保存到你的 Notion 数据库
 
-## 分镜脚本结构
+## 📋 分镜脚本结构
 
 每个镜头包含：
 - 镜头编号和时长
@@ -81,7 +82,7 @@ npm run dev
 - 营销策略点
 - 情绪曲线
 
-## 病毒营销策略
+## 🎯 病毒营销策略
 
 系统会自动分析并优化：
 - **开场钩子**：前3秒黄金时间
@@ -89,14 +90,14 @@ npm run dev
 - **互动诱导**：评论、分享引导点
 - **视觉记忆**：独特的视觉符号
 
-## 技术栈
+## 🛠 技术栈
 
-- **前端**：Next.js 14 + TypeScript + TailwindCSS
-- **AI**：Google Gemini 2.0 Flash
+- **前端**：Next.js 15 + TypeScript + TailwindCSS
+- **AI**：Google Gemini 2.5 Pro
 - **集成**：Notion API
 - **UI**：Lucide Icons + React Hot Toast
 
-## 部署
+## 🚀 部署
 
 ### Vercel 部署（推荐）
 
@@ -112,12 +113,26 @@ npm run build
 npm start
 ```
 
-## 注意事项
+## ⚠️ 注意事项
 
 - 确保 API Key 安全，不要提交到公开仓库
 - Notion 数据库需要正确的权限设置
 - 建议使用 HTTPS 部署生产环境
 
-## License
+## 📄 License
 
 MIT
+
+## 🤝 贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+## 📞 联系
+
+如有问题或建议，请提交 Issue。
+
+---
+
+🤖 使用 Claude Code 开发
+
+Co-Authored-By: Claude <noreply@anthropic.com>
