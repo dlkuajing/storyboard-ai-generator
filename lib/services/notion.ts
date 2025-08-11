@@ -61,7 +61,9 @@ export class NotionService {
     return response.id;
   }
 
-  private formatShotsAsBlocks(shots: Shot[]) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private formatShotsAsBlocks(shots: Shot[]): any[] {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const blocks: any[] = [];
 
     // 1. 添加概览信息

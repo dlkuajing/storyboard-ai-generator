@@ -1,0 +1,29 @@
+# frpc.toml - 本地客户端配置
+serverAddr = "172.104.59.98"
+serverPort = 7000
+
+# 认证配置（需要与服务端一致）
+auth.method = "token"
+auth.token = "ce755101ccd9452c"
+
+# 日志配置
+log.to = "./frpc.log"
+log.level = "info"
+log.maxDays = 3
+
+# Web服务配置 - 跨海帆-速分镜
+[[proxies]]
+name = "storyboard-web"
+type = "http"
+localIP = "127.0.0.1"
+localPort = 3000
+customDomains = ["storyboard.172.104.59.98.nip.io"]  # 使用nip.io自动DNS
+subdomain = "storyboard"  # 子域名
+
+# 直接TCP访问（备选方案）
+[[proxies]]
+name = "storyboard-tcp"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 3000
+remotePort = 3001  # 远程访问端口

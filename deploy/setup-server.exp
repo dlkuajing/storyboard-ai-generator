@@ -1,0 +1,60 @@
+#!/usr/bin/expect -f
+
+# 设置超时
+set timeout 30
+
+# SSH连接
+spawn ssh root@172.104.59.98
+
+# 等待密码提示
+expect {
+    "password:" {
+        send "ce755101ccd9452c\r"
+    }
+    "yes/no" {
+        send "yes\r"
+        expect "password:"
+        send "ce755101ccd9452c\r"
+    }
+}
+
+# 等待登录成功
+expect "# "
+
+# 进入目录
+send "cd /opt/frp-storyboard\r"
+expect "# "
+
+# 创建配置文件
+send "cat > frps.toml << 'EOF'\r"
+send "bindPort = 7001\r"
+send "vhostHTTPPort = 7070\r"
+send "auth.method = \"token\"\r"
+send "auth.token = \"storyboard_1754841832\"\r"
+send "log.to = \"./frps.log\"\r"
+send "EOF\r"
+expect "# "
+
+# 启动FRP
+send "./frps -c frps.toml &\r"
+expect "# "
+sleep 2
+
+# 检查端口
+send "netstat -tlnp | grep 7001\r"
+expect "# "
+
+# 开放防火墙
+send "ufw allow 7001/tcp\r"
+expect "# "
+send "ufw allow 7070/tcp\r"
+expect "# "
+send "ufw allow 4001/tcp\r"
+expect "# "
+
+send "echo 'FRP配置完成！'\r"
+expect "# "
+
+# 退出
+send "exit\r"
+expect eof

@@ -1,0 +1,20 @@
+# 简化版配置 - 仅用于测试
+serverAddr = "172.104.59.98"
+serverPort = 7000
+
+# 尝试不同的认证方式
+# 如果服务器没有设置认证，注释掉下面两行
+# auth.method = "token"
+# auth.token = "ce755101ccd9452c"
+
+# 日志配置
+log.to = "./frpc.log"
+log.level = "debug"
+
+# 简单的TCP代理
+[[proxies]]
+name = "storyboard-test"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 3000
+remotePort = 3002

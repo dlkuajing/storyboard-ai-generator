@@ -1,0 +1,40 @@
+====================================
+快速配置命令 - 直接复制粘贴到SSH终端
+====================================
+
+请在SSH连接后，复制粘贴以下整个命令块：
+
+cd /opt/frp-storyboard && \
+cat > frps.toml << 'EOF'
+bindPort = 7001
+vhostHTTPPort = 7070
+auth.method = "token"
+auth.token = "storyboard_1754841832"
+log.to = "./frps.log"
+EOF
+echo "✅ 配置文件已创建" && \
+cat frps.toml && \
+echo "" && \
+echo "启动FRP..." && \
+pkill frps 2>/dev/null || true && \
+nohup ./frps -c frps.toml > /dev/null 2>&1 & && \
+echo "FRP PID: $!" && \
+sleep 2 && \
+ps aux | grep frps | grep -v grep && \
+echo "" && \
+echo "检查端口..." && \
+netstat -tlnp | grep 7001 && \
+echo "" && \
+echo "开放防火墙..." && \
+(ufw allow 7001/tcp 2>/dev/null || iptables -A INPUT -p tcp --dport 7001 -j ACCEPT) && \
+(ufw allow 7070/tcp 2>/dev/null || iptables -A INPUT -p tcp --dport 7070 -j ACCEPT) && \
+(ufw allow 4001/tcp 2>/dev/null || iptables -A INPUT -p tcp --dport 4001 -j ACCEPT) && \
+echo "✅ 防火墙已配置" && \
+echo "" && \
+echo "=====================================" && \
+echo "✅ FRP服务器配置完成！" && \
+echo "=====================================" && \
+echo "端口7001已开放" && \
+echo "HTTP端口7070已开放" && \
+echo "应用端口4001已开放" && \
+echo "====================================="

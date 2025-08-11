@@ -144,7 +144,7 @@ ${shot.marketingPoint ? `营销点: ${shot.marketingPoint}` : ''}
                     <Mic className={`w-5 h-5 ${style.icon}`} />
                     台词
                   </h4>
-                  <p className="text-gray-700 italic">"{shot.dialogue}"</p>
+                  <p className="text-gray-700 italic">&ldquo;{shot.dialogue}&rdquo;</p>
                 </div>
               )}
               

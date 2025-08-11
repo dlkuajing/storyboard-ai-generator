@@ -107,6 +107,7 @@ ${request.script}
       
       const parsed = JSON.parse(jsonMatch[0]);
       
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const shots: Shot[] = parsed.shots.map((shot: any, index: number) => ({
         id: `shot-${Date.now()}-${index}`,
         shotNumber: shot.shotNumber || index + 1,
