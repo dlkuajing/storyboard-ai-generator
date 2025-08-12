@@ -34,6 +34,7 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env.frp
 
 # Vercel
 .vercel
@@ -58,4 +59,8 @@ tmp/
 # Logs
 logs/
 *.log
-EOF < /dev/null
+
+# Service files
+.services.pid
+next.log
+frpc.log

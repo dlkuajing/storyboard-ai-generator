@@ -4,8 +4,13 @@ echo "======================================"
 echo "重启FRP服务"
 echo "======================================"
 
-SERVER_IP="172.104.59.98"
-SSH_PASS="${SSH_PASSWORD:-your_ssh_password_here}"
+# 加载环境变量
+if [ -f ../.env.frp ]; then
+    source ../.env.frp
+fi
+
+SERVER_IP="${SERVER_IP:-172.104.59.98}"
+SSH_PASS="${SSH_PASSWORD:-ce755101ccd9452c}"
 
 # 重启服务器端FRP
 echo "重启服务器端FRP..."
